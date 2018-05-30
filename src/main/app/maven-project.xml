@@ -14,6 +14,9 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
     <spring:beans>
         <spring:bean id="Bean" name="Bean" class="com.mulesoft.training.Database"/>
     </spring:beans>
+    
+    
+    
     <db:derby-config name="Derby_Configuration" url="jdbc:derby:memory:muleEmbeddedDB;create=true" doc:name="Derby Configuration"/>
     <jms:activemq-connector name="Active_MQ" brokerURL="vm://localhost" validateConnections="true" doc:name="Active MQ"/>
     <flow name="mavenFlow">
@@ -32,4 +35,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <jms:inbound-endpoint queue="flights" connector-ref="Active_MQ" doc:name="JMS"/>
         <logger message="#[message.payload]" level="INFO" doc:name="Logger"/>
     </flow>
+    
+    
+    
 </mule>
